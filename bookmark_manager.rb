@@ -2,12 +2,14 @@ require 'sinatra/base'
 require './app/models/link'
 
 class BookmarkManager < Sinatra::Base
-  enable :sessions
+  #enable :sessions
 
   get "/" do
-    # session['link'] = Link.all
-    # @link = session['link']
-    @link = Link.all
+    links = []
+    Link.all.each do |l|
+      links << l.url.to_s
+    end
+    @links = links.join(' ')
     erb(:database)
   end
 end

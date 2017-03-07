@@ -19,3 +19,16 @@ As a user
 So that I can easily find links
 I want to be able to filter the links by the tag or title
 ```
+
+class BookmarkManager
+include DataMapper::Resource
+property :id, Integer
+property :title, String
+property :url, String
+end
+
+link = Link.create(
+:id => 3,
+:title => "Amazon",
+:url => "http://www.amazon.com"
+)

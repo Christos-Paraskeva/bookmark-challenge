@@ -7,3 +7,7 @@ gem 'rspec'
 gem 'rack'
 gem 'sinatra'
 gem 'rerun'
+
+group :test do
+  gem 'database_cleaner'
+end

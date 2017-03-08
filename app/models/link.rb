@@ -7,7 +7,8 @@ class Link
   property :title, String
   property :url, String
 end
-
-DataMapper.setup(:default, 'postgres://localhost/bookmark_manager_test')
+# the interpolation used for the 'ENV' settings will set the ending of this database name
+# to 'test', whereas when the app is used via rackup, it will use the development mode.
+DataMapper.setup(:default, "postgres://localhost/bookmark_manager_#{ENV['RACK_ENV']}")
 DataMapper.finalize
 DataMapper.auto_upgrade!

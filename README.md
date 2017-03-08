@@ -22,7 +22,7 @@ I want to be able to filter the links by the tag or title
 
 class BookmarkManager
 include DataMapper::Resource
-property :id, Integer
+property :id, Serial
 property :title, String
 property :url, String
 end

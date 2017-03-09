@@ -1,13 +1,12 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
 
-class Link
+class Tag
   include DataMapper::Resource
   property :id, Serial
-  property :title, String
-  property :url, String
+  property :tags, String#, length => 10
 
-  has n, :tags, :through => Resource
+  has n, :links, :through => Resource
 end
 # the interpolation used for the 'ENV' settings will set the ending of this database name
 # to 'test', whereas when the app is used via rackup, it will use the development mode.

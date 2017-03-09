@@ -4,10 +4,11 @@ require 'sinatra/base'
 require './app/models/link'
 require './app/models/tag'
 require './app/models/dm_start'
+start_datamapper
 
 class BookmarkManager < Sinatra::Base
 
-  start_datamapper
+  #start_datamapper
 
   get "/" do
     erb(:index)

@@ -3,8 +3,7 @@ ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
 require './app/models/link'
 require './app/models/tag'
-require './app/models/dm_start'
-start_datamapper
+require_relative './app/models/dm_start'
 
 class BookmarkManager < Sinatra::Base
 

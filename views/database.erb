@@ -1,7 +1,10 @@
 <% @link.each do |l| %>
-<h3> <%=  l.title %> </h3>
-<p>  <%=  l.url %> <p>
-
- <span style="color: white; border: 2px solid dark-green; padding: 5px; background-color: green"> <%= l.tags.first.tags %> </span>
-
+  <h3> <%=  l.title %> </h3>
+  <p>  <%=  l.url %> <p>
+  <span style="color: white; border: 2px solid dark-green; padding: 5px; background-color: green"> <%= l.tags.first.tags %> </span>
 <% end %>
+
+<form action="/search_tags" method="post">
+  <input type='text' name='tag'>
+  <input type="submit" value="Submit"> </input>
+</form>

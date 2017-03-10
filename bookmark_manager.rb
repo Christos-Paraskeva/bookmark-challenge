@@ -7,7 +7,7 @@ require_relative './app/models/dm_start'
 
 class BookmarkManager < Sinatra::Base
 
-  #start_datamapper
+  enable :sessions
 
   get "/" do
     erb(:index)
@@ -15,7 +15,6 @@ class BookmarkManager < Sinatra::Base
 
   get "/bookmarks" do
     @link = Link.all
-    #@tag = Tag.all
     erb(:database)
   end
 
@@ -26,10 +25,14 @@ class BookmarkManager < Sinatra::Base
   post "/savelink" do
     link = Link.create(title: params[:title], url: params[:url])
     tag = Tag.create(tags: params[:tags])
-    # link.tags << tag
-    # link.save
     LinkTag.create(:link => link, :tag => tag)
-
     redirect('/bookmarks')
   end
+
+  post "/search_tags" do
+    @link = Link.all
+    @x = session[:tag_name]=params[:tag]
+    erb(:display_tags)
+  end
+
 end

@@ -1,0 +1,7 @@
+<% @link.each do |l| %>
+  <% if (l.tags.first.tags == @x) %>
+       <h3> <%=  l.title %> </h3>
+       <p>  <%=  l.url %> <p>
+       <span style="color: white; border: 2px solid dark-green; padding: 5px; background-color: green"> <%= l.tags.first.tags %> </span>
+     <% end %>
+<% end %>
